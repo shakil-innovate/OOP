@@ -1,3 +1,5 @@
+package problem_1;
+
 import java.util.Scanner;
 
 public class one
