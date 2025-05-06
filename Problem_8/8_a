@@ -1,0 +1,84 @@
+package apna_college;
+
+class Employee
+{
+    public String name;
+    public int id;
+    public String department;
+
+    double calculatePay(double fixedSalary,int month)
+    {
+        double total=fixedSalary * month;
+        //System.out.println("total amount is : "+ total);
+        return total;
+    }
+
+    double calculatePay(int hour , double hourRate)
+    {
+        double total = hour*hourRate;
+        return total;
+    }
+
+    double calculatePay(double contractAmount)
+    {
+        return contractAmount;
+    }
+
+
+}
+
+class FullTimeEmployee extends Employee
+{
+  public double fixedSalary;
+
+  FullTimeEmployee(String name, int id, String department)
+  {
+      this.name=name;
+      this.id=id;
+      this.department=department;
+  }
+}
+class PartTimeEmployee extends Employee
+{
+    public double hourRate;
+    public int hourWorked;
+
+    PartTimeEmployee(String name, int id, String department)
+    {
+        this.name=name;
+        this.id=id;
+        this.department=department;
+    }
+}
+
+class ContractEmployee extends Employee
+{
+    public String projectName;
+    public double contractAmount;
+
+    ContractEmployee(String name, int id, String department)
+    {
+        this.name=name;
+        this.id=id;
+        this.department=department;
+    }
+}
+
+public class Eight_A {
+    public static void main(String[] argc)
+    {
+        FullTimeEmployee f1= new FullTimeEmployee("Shakil",01,"Software Engineer");
+        f1.fixedSalary=100000;
+
+        PartTimeEmployee p1=new PartTimeEmployee("Sabit",02,"Web devoloper");
+        p1.hourRate=5000;
+        p1.hourWorked=10;
+
+        ContractEmployee c1=new ContractEmployee("Mojahid",03,"Cyber security");
+        c1.contractAmount=50000;
+
+        System.out.println(f1.calculatePay(f1.fixedSalary,1));
+        System.out.println(p1.calculatePay(p1.hourWorked,p1.hourRate));
+        System.out.println(c1.calculatePay(c1.contractAmount));
+    }
+}
