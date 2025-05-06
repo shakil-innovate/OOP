@@ -1,0 +1,72 @@
+package apna_college;
+
+import java.util.Scanner;
+
+class Student
+{
+    public String name;
+
+    double[][] marks= new double[5][5];
+
+    Student(String name)
+    {
+        this.name=name;
+    }
+
+    public double calulateResult()
+    {
+        double total_point=0,total_credit=0;
+        for(int i=0;i<5;i++)
+        {
+          total_credit+=marks[i][0];
+          total_point+=marks[i][0]* marks[i][1];
+        }
+
+        total_point=(total_point/total_credit);
+        return total_point;
+    }
+}
+public class problem_8_c {
+    public static void main(String[] argc)
+    {
+        Scanner sc=new Scanner(System.in);
+        Student s1=new Student("shakil");
+        System.out.println("input s1 credit and number 5 times: ");
+
+        for(int i=0; i<5 ; i++)
+        {
+            s1.marks[i][0]=sc.nextDouble();
+            s1.marks[i][1]=sc.nextDouble();
+        }
+
+        System.out.println(s1.name+" result: " + s1.calulateResult());
+
+        Student s2=new Student("Mojahid");
+        System.out.println("input s2 credit and number 5 times: ");
+
+
+
+        for(int i=0; i<5 ; i++)
+        {
+            s2.marks[i][0]=sc.nextDouble();
+            s2.marks[i][1]=sc.nextDouble();
+        }
+
+
+        System.out.println(s2.name+" result: " + s2.calulateResult());
+
+        Student s3=new Student("Apu");
+        System.out.println("input s3 credit and number 5 times: ");
+
+        for(int i=0; i<5 ; i++)
+        {
+            s3.marks[i][0]=sc.nextDouble();
+            s3.marks[i][1]=sc.nextDouble();
+        }
+
+
+        System.out.println(s3.name+" result: " + s3.calulateResult());
+
+
+    }
+}
