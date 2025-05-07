@@ -1,0 +1,163 @@
+package apna_college;
+
+class Book {
+    public int bookId;
+    public String bookName;
+    public String bookAuthor;
+    public String yearOfPublication;
+    public float price;
+    public String status;
+
+    public Book(int bookId, String bookName, String bookAuthor, String yearOfPublication, float price, String status) {
+        this.bookId = bookId;
+        this.bookName = bookName;
+        this.bookAuthor = bookAuthor;
+        this.yearOfPublication = yearOfPublication;
+        this.price = price;
+        this.status = status;
+    }
+
+    public void addNewBooks() {
+        System.out.println("Add new Books");
+    }
+
+    public void deleteBooks() {
+        System.out.println("Books delete");
+    }
+
+    public void bookDetails() {
+        System.out.println(this.bookName + " author " + this.bookAuthor + " id " + this.bookId);
+    }
+}
+
+class Librarian {
+    public int id;
+    public String name;
+
+    public Librarian(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public void searchBook(Book book) {
+        book.bookDetails();
+    }
+
+    public void verifyMember(User user) {
+        System.out.println("Verify");
+        System.out.println("Name is : " + user.userName);
+    }
+
+    public void orderBook(Book book, User user) {
+        System.out.println("Order details is :");
+        System.out.println("user :");
+        user.userDetails();
+        System.out.println("book details :");
+        book.bookDetails();
+    }
+
+    public void sellBook(Book book, User user) {
+        System.out.println("sell details is :");
+        System.out.println("user :");
+        user.userDetails();
+        System.out.println("book details :");
+        book.bookDetails();
+    }
+}
+
+class User {
+    public String userId;
+    public String userName;
+    public String userAddress;
+    public int phoneNo;
+
+    public User(String userId, String userName, String userAddress, int phoneNo) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userAddress = userAddress;
+        this.phoneNo = phoneNo;
+    }
+
+    public void returnBook(Book book) {
+        System.out.println("return book Detais");
+        book.bookDetails();
+    }
+
+    public void payFine(int day, int price) {
+        System.out.println("fine is " + day * price);
+    }
+
+    public void addUser() {
+        System.out.println("add user");
+    }
+
+    public void deleteUser() {
+        System.out.println("delete user");
+    }
+
+    public void updateDetails(String name) {
+        this.userName = name;
+    }
+
+    public void bookPurchase(Book book) {
+        System.out.println("Purchase Book details is: ");
+        book.bookDetails();
+    }
+
+    public void userDetails() {
+        System.out.println("Name : " + this.userName);
+        System.out.println("Address : " + this.userAddress);
+        System.out.println("Id : " + this.userId);
+        System.out.println("phoneNo : " + this.phoneNo);
+    }
+
+    public void publisherDetails(Publisher publisher) {
+        publisher.publisherDetails();
+    }
+}
+
+class Publisher {
+    public int id;
+    public String name;
+    public String address;
+    public int phoneNo;
+
+    public Publisher(int id, String name, String address, int phoneNo) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phoneNo = phoneNo;
+    }
+
+    public void publisherDetails() {
+        System.out.println("PublisherDetails is: ");
+        System.out.println("id " + id);
+        System.out.println("name : " + name);
+        System.out.println("address : " + address);
+    }
+
+    public void orderStatus(Book book) {
+        System.out.println("Order status checked for book: " + book.bookName);
+    }
+}
+
+public class Associaton_example {
+    public static void main(String[] args) {
+        Book b1 = new Book(101, "Java", "James Gosling", "1995", 499.99f, "Available");
+        User u1 = new User("U001", "Shakil", "Dhaka", 1234567890);
+        Librarian l1 = new Librarian(1, "Mr. Rahim");
+        Publisher p1 = new Publisher(201, "TechBooks", "Mohakhali", 987654321);
+
+        l1.searchBook(b1);
+        l1.verifyMember(u1);
+        l1.orderBook(b1, u1);
+        l1.sellBook(b1, u1);
+
+        u1.returnBook(b1);
+        u1.bookPurchase(b1);
+        u1.publisherDetails(p1);
+        u1.payFine(3, 10);
+
+        p1.orderStatus(b1);
+    }
+}
