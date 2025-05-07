@@ -1,0 +1,36 @@
+package apna_college;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class problem_4_string {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String s1 =sc.next();
+        String s2="";
+
+        for(int i=s1.length()-1; i>=0 ; i--)
+        {
+            s2+=s1.charAt(i);
+        }
+
+        if(s1.equalsIgnoreCase(s2))
+        {
+            System.out.println("This is palindrome");
+        }
+
+        char ch='l';
+        s1=s1.toLowerCase();
+
+        System.out.println(s1);
+        int occurance=0;
+
+        for(int i=0; i< s1.length() ; i++)
+        {
+        if(s1.charAt(i)==ch) occurance++;
+        }
+
+        System.out.println(ch +" occurance is "+occurance);
+    }
+}
